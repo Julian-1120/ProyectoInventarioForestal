@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario Forestal</title>
+    <link rel="icon" href="/Proyecto_7L/Imagenes/Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">🌱 IFN</div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+
+                <!-- Menú desplegable Registrar -->
+                <li class="dropdown">
+                    <a href="#" id="registrarBtn">Registrar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-section="registrar">Registrar Árboles</a></li>
+                        <li><a href="#">Registrar Suelos</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="gestionarBtn">Gestionar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-section="gestionar">Gestionar Árboles</a></li>
+                        <li><a href="#">Gestionar Suelos</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <button class="btn-login">Iniciar sesión</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Inventario Forestal Nacional</h1>
+        <p>Gestiona y analiza la información de los bosques para su conservación y aprovechamiento sostenible.</p>
+    </section>
+
+    <!-- Catálogo de Árboles -->
+    <section class="catalogo" id="catalogoSection">
+        <h2>Listado de Árboles</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://elescorial.com.mx/wp-content/uploads/2020/10/pino-eldarica.jpg" alt="Pino">
+                <h3>Pino</h3>
+            </div>
+            <div class="card">
+                <img src="https://previews.123rf.com/images/tiler84/tiler841201/tiler84120100018/11967986-pedunculate-oak-tree-isolated-on-white-background.jpg"
+                    alt="Roble">
+                <h3>Roble</h3>
+            </div>
+            <div class="card">
+                <img src="https://thumbs.dreamstime.com/b/%C3%A1rbol-de-cedro-de-l%C3%ADbano-aislado-en-blanco-22936548.jpg"
+                    alt="Cedro">
+                <h3>Cedro</h3>
+            </div>
+            <div class="card">
+                <img src="https://previews.123rf.com/images/tiler84/tiler841607/tiler84160700049/62604589-honey-locust-tree-isolated-on-white-background-3d-illustration.jpg"
+                    alt="Acacia">
+                <h3>Acacia</h3>
+            </div>
+        </div>
+    </section>
+    <div id="overlay" class="overlay"></div>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeBtn">&times;</span>
+            <h2>Bienvenido</h2>
+            <form>
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit" class="btn-ingresar">Ingresar</button>
+            </form>
+        </div>
+    </div>
+        <!-- Registrar Árboles (oculto por defecto) -->
+
+    <section class="form-arbol" id="registrarArbolSection" style="display:none;">
+        <h2>Registro de Árboles</h2>
+        <form>
+            <input type="text" placeholder="Nombre común" required>
+
+            <select required>
+                <option value="" disabled selected>Tipo de Uso</option>
+                <option value="Medicinal">Medicinal</option>
+                <option value="Industrial">Industrial</option>
+                <option value="Maderable">Maderable</option>
+            </select>
+
+            <input type="date" required>
+
+            <button type="button" class="btn-ingresar">Cargar Imagen</button>
+            <button type="submit" class="btn-ingresar">Registrar Árbol</button>
+        </form>
+        <br>
+        <button id="volverCatalogo" class="btn-ingresar">Volver al Inicio</button>
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>
