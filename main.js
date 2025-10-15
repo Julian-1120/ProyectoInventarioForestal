@@ -1,7 +1,7 @@
 // ============================
 //   IMPORTAR FIREBASE
 // ============================
-import { auth, signInWithEmailAndPassword } from "../firebase-config.js";
+import { auth, signInWithEmailAndPassword } from "..Proyecto_7L/fireBase-config.js";
 
 // ============================
 //   TODO CÓDIGO DE INTERFAZ
