@@ -1,3 +1,11 @@
+// ============================
+//   IMPORTAR FIREBASE
+// ============================
+import { auth, signInWithEmailAndPassword } from "../firebase-config.js";
+
+// ============================
+//   TODO CÓDIGO DE INTERFAZ
+// ============================
 document.addEventListener("DOMContentLoaded", () => {
   // ============================
   //   MENÚS DESPLEGABLES
@@ -32,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================
   //   MODAL DE LOGIN
   // ============================
-  const loginBtn = document.querySelector(".btn-login"); // Botón iniciar sesión
+  const loginBtn = document.querySelector(".btn-login"); 
   const modal = document.getElementById("loginModal");
   const overlay = document.getElementById("overlay");
   const closeBtn = document.getElementById("closeBtn");
@@ -58,9 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   CAMBIO DE SECCIONES
   // ============================
   const catalogoSection = document.getElementById("catalogoSection");
-  const registrarArbolSection = document.getElementById(
-    "registrarArbolSection"
-  );
+  const registrarArbolSection = document.getElementById("registrarArbolSection");
   const volverCatalogoBtn = document.getElementById("volverCatalogo");
 
   // Click en "Registrar Árboles"
@@ -77,6 +83,32 @@ document.addEventListener("DOMContentLoaded", () => {
     volverCatalogoBtn.addEventListener("click", () => {
       registrarArbolSection.style.display = "none";
       catalogoSection.style.display = "block";
+    });
+  }
+
+  // ============================
+  //   AUTENTICACIÓN CON FIREBASE
+  // ============================
+  const form = document.querySelector("#loginModal form");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = form.querySelector("input[type='text']").value;
+      const password = form.querySelector("input[type='password']").value;
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        alert(` Bienvenido, ${user.email}`);
+        modal.style.display = "none";
+        overlay.style.display = "none";
+      } catch (error) {
+        alert("Usuario o contraseña incorrectos");
+        console.error(error);
+      }
     });
   }
 });
